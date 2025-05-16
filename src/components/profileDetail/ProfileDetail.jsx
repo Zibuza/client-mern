@@ -21,7 +21,7 @@ const ProfileDetail = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/user/find/${id}`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/user/find/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -43,7 +43,7 @@ const ProfileDetail = () => {
   useEffect(() => {
     const fetchProfilePosts = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/post/find/userposts/${id}`)
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/post/find/userposts/${id}`)
         const data = await res.json()
         setProfilePosts(data)
       } catch (error) {
@@ -56,7 +56,7 @@ const ProfileDetail = () => {
   // handle follow function
   const handleFollowFunction = async () => {
     try {
-      await fetch(`http://localhost:5000/user/toggleFollow/${profile?._id}`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/user/toggleFollow/${profile?._id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

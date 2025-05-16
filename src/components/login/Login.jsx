@@ -12,14 +12,15 @@ const Login = () => {
   const [error, setError] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
+  console.log(process.env.REACT_APP_BACKEND_BASEURL, "base URL") ; 
+  
   const handleLogin = async(e) => {
     e.preventDefault()
 
     if(email === '' || password === '') return
 
     try {
-      const res = await fetch(`http://localhost:5000/auth/login`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/auth/login`, {
         headers: {
           'Content-Type': 'application/json',
         },

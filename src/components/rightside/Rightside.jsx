@@ -14,7 +14,7 @@ const Rightside = () => {
   useEffect(() => {
     const fetchFriends = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/user/find/friends`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/user/find/friends`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

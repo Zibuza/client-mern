@@ -14,7 +14,7 @@ const SuggestedUsers = () => {
   useEffect(() => {
     const fetchSuggestedUsers = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/user/find/suggestedUsers`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/user/find/suggestedUsers`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -32,7 +32,7 @@ const SuggestedUsers = () => {
 
   const toggleFollow = async (id) => {
     try {
-      await fetch(`http://localhost:5000/user/toggleFollow/${id}`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/user/toggleFollow/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         },

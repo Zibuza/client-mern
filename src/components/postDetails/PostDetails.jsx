@@ -17,7 +17,7 @@ const PostDetails = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/post/find/${id}`)
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/post/find/${id}`)
         const data = await res.json()
         setPost(data)
       } catch (error) {
@@ -30,7 +30,7 @@ const PostDetails = () => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/comment/${id}`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/comment/${id}`, {
           headers: {
             "Authorization": `Bearer ${token}`
           }
@@ -58,7 +58,7 @@ const PostDetails = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:5000/comment`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/comment`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`

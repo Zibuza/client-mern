@@ -20,7 +20,7 @@ const Signup = () => {
     console.log(username, email, password)
 
     try {
-      const res = await fetch(`http://localhost:5000/auth/register`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/auth/register`, {
         headers: {
           'Content-Type': 'application/json',
         },

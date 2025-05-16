@@ -28,7 +28,7 @@ const Post = ({ post }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/comment/${post._id}`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/comment/${post._id}`, {
           headers: {
             "Authorization": `Bearer ${token}`
           }
@@ -45,7 +45,7 @@ const Post = ({ post }) => {
 
   const deletePost = async () => {
     try {
-      await fetch(`http://localhost:5000/post/${post._id}`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/post/${post._id}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         },
@@ -59,7 +59,7 @@ const Post = ({ post }) => {
 
   const handleLikePost = async () => {
     try {
-      await fetch(`http://localhost:5000/post/toggleLike/${post._id}`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/post/toggleLike/${post._id}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         },
@@ -73,7 +73,7 @@ const Post = ({ post }) => {
 
   const handleBookmark = async () => {
     try {
-      await fetch(`http://localhost:5000/user/bookmark/${post._id}`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/user/bookmark/${post._id}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         },
@@ -96,7 +96,7 @@ const Post = ({ post }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:5000/comment`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/comment`, {
         headers: {
           "Content-Type": 'application/json',
           "Authorization": `Bearer ${token}`

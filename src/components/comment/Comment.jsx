@@ -13,7 +13,7 @@ const Comment = ({ c }) => {
 
    const handleLikeComment = async() => {
     try {
-      await fetch(`http://localhost:5000/comment/toggleLike/${c?._id}`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/comment/toggleLike/${c?._id}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         },
